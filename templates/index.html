@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load thumbnail %}
+
+<html>
+    <head>
+        <title>Список изображений</title>
+    </head>
+    <body>
+        <div>
+            <h1>
+                Список изображений
+            </h1>
+        </div>
+        <div>
+            {% if images %}
+                {% for image in images %}
+                    <p>{{ image.name }}</p>
+                {% endfor %}
+            {% else %}
+                <p>Нет доступных изображений</p>
+            {% endif %}
+        </div>
+        <div>
+            <a href='/add_image/'>Добавить изображение</a>
+        </div>
+    </body>
+</html>

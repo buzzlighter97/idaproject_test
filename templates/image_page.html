@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{% load thumbnail %}
+<html>
+    <head>
+        <title>Страница изображения</title>
+    </head>
+    <body>
+        <div>
+            <h1>
+                {{ image.name }}
+            </h1>
+        </div>
+        <form method='post'>
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Отправить">
+        </form>
+        <div>
+            {% thumbnail image.image "100x100" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            {% endthumbnail %}
+        </div>
+    </body>
+</html>
